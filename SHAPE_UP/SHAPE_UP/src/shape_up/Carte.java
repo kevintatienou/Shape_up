@@ -27,12 +27,24 @@ public class Carte {
 		return couleur;
 	}
 
+	public void setCouleur(String couleur) {
+		this.couleur = couleur;
+	}
+	
 	public String getForme() {
 		return forme;
+	}
+	
+	public void setForme(String forme) {
+		this.forme = forme;
 	}
 
 	public boolean isRemplissage() {
 		return remplissage;
+	}
+	
+	public void setRemplissage(boolean remplissage) {
+		this.remplissage = remplissage;
 	}
 	
 }

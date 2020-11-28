@@ -1,14 +1,13 @@
-package shape_up 
+package shape_up; 
 
-public class Rectangle {
+public class Rectangle extends Forme{
 	private double longueur;
 	private double largeur;
 	
-	
-    public Rectangle(double longueur, double largeur) {
+    public Rectangle(int x, int y, double longueur, double largeur) {
+    	super(x, y);
     	this.longueur = longueur;
     	this.largeur = largeur;
-    	
     }
     
     public double getLongueur() {

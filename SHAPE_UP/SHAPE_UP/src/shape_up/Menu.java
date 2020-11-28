@@ -13,19 +13,12 @@ public class Menu{
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println(" --------   |         |  --------    --------   --------                 |         |  --------");
-		System.out.println("|           |         | |         | |        | |                         |         | |        |");
-		System.out.println("|           |         | |         | |        | |                         |         | |        |");
-		System.out.println("|           |         | |         | |        | |                         |         | |        |");
-		System.out.println("|           |         | |         | |        | |                         |         | |        |");
-		System.out.println(" --------    ---------   --------    --------   --------  -----------    |         |  --------");
-		System.out.println("         |  |         | |         | |          |                         |         | |");
-		System.out.println("         |  |         | |         | |          |                         |         | |");
-		System.out.println("         |  |         | |         | |          |                         |         | |");
-		System.out.println("         |  |         | |         | |          |                         |         | |");
-		System.out.println(" --------   |         | |         | |           --------                  --------   |");
-		System.out.println("                                                                                           ");
-		System.out.println("                                                                                      JOUER");
+		//début
+		ShapeUp titre = new ShapeUp();
+		titre.afficherTitre();
+		titre.afficherDescription();
+		
+		
 	}
 
 }
