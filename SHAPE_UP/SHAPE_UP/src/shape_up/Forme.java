@@ -10,8 +10,8 @@ public class Forme {
 	}
 	
 	//à implémenter
-	public Forme choisirForme() {
-		return this;
+	public String choisirForme() {
+		return "";
 	}
 
 	public int getX() {

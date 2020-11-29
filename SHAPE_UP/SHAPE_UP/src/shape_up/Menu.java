@@ -17,7 +17,7 @@ public class Menu{
 		ShapeUp titre = new ShapeUp();
 		titre.afficherTitre();
 		titre.afficherDescription();
-		
+		titre.affichageCarte();
 		
 	}
 

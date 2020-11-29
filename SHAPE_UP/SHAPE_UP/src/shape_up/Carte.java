@@ -1,12 +1,12 @@
 package shape_up;
 
 public class Carte {
-	private String couleur;
-	private String forme;
+	private Couleur couleur;
+	private FormeCarte forme;
 	private boolean remplissage;
 	private int num;
 	
-	public Carte(String couleur, String forme, boolean remplissage, int num) {
+	public Carte(Couleur couleur, FormeCarte forme, boolean remplissage, int num) {
 		this.couleur = couleur; //rouge ou vert ou bleu
 		this.forme = forme; //cercle ou carré ou triangle
 		this.remplissage = remplissage;
@@ -23,19 +23,19 @@ public class Carte {
 		this.num = num;
 	}
 
-	public String getCouleur() {
+	public Couleur getCouleur() {
 		return couleur;
 	}
 
-	public void setCouleur(String couleur) {
+	public void setCouleur(Couleur couleur) {
 		this.couleur = couleur;
 	}
 	
-	public String getForme() {
+	public FormeCarte getForme() {
 		return forme;
 	}
 	
-	public void setForme(String forme) {
+	public void setForme(FormeCarte forme) {
 		this.forme = forme;
 	}
 

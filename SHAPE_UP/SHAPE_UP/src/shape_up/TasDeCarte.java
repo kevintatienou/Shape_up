@@ -32,6 +32,14 @@ public class TasDeCarte {
 		return this.cartes.size();
 	}
 	
+	public Carte getCarte() {
+		Carte carte =  null;
+		for(int i=0; i<this.cartes.size(); i++) {
+			carte = this.cartes.get(i);
+		}
+		return carte;
+	}
+	
 	// je sais pas s'il faut preciser si dans le tas il y'a une carte..
 	public String toString() {
         String str = "";
