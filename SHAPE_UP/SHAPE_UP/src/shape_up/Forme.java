@@ -4,9 +4,9 @@ public class Forme {
 	private int x;
 	private int y;
 	
-	public Forme(int x, int y) {
-		this.x = x;
-		this.y = y;
+	public Forme() {
+		//this.x = x;
+		//this.y = y;
 	}
 	
 	//à implémenter

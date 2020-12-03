@@ -1,21 +1,12 @@
 package shape_up;
 
+import java.util.Scanner;
+
 public class ShapeUp {
-	
-	private Plateau plateau;
-	private TasDeCarte tas;
-	private int nbJoueur;
-	private int ligne;
-	private int colonne;
-	private Forme forme;
-	
-	public ShapeUp() {
-		this.plateau = new Plateau(2,3, 5,forme);
-		this.plateau.addJoueur();
-	}
+	public ShapeUp() {}
 	
 	public String afficherTitre() {
-		String titre = "--------   |         |  --------    --------   --------                 |         |  --------\n" + 
+		String titre =" --------   |         |  --------    --------   --------                 |         |  --------\n" + 
 					  "|           |         | |         | |        | |                         |         | |        |\n" + 
 					  "|           |         | |         | |        | |                         |         | |        |\n" + 
 					  "|           |         | |         | |        | |                         |         | |        |\n" +
@@ -41,14 +32,19 @@ public class ShapeUp {
 		return desc;
 	}
 	
-	public String affichageCarte() {
+	/*public String affichageCarte() {
 		Carte c2 = new Carte(Couleur.Bleu,FormeCarte.Cercle,true,1);
 		String s = "";
 		
 		//carte gagnante et cachée
 		VictoryCard victory = null;
 		HiddenCard hidden = null;
+		
 		this.tas = new TasDeCarte();
+		this.cartes = new Carte[17];
+	
+		this.plateau.ajout();
+		
 		victory = (VictoryCard) this.tas.getCarte();
 		hidden = (HiddenCard) this.tas.getCarte();
 		
@@ -57,14 +53,88 @@ public class ShapeUp {
 			"Piocher une carte : " + "bouton piocher\n" + 
 			"Carte piochée : \n" + c2.getNum() + c2.getCouleur() + c2.getForme() + c2.getForme() + c2.isRemplissage();
 		return s;
-	}
+	}*/
 	
-	public void afficherPlateau() {
+	/*public void afficherPlateau() {
 		String s = "Plateau " + this.plateau.choisirForme();
-	}
+	}*/
 	
 	/*public String afficherScore() {
 		String s = "Score : " + this.nom1 + "score";
 		return s;
 	}*/
+	
+	public static void main(String[] args) {
+		//début
+		ShapeUp titre = new ShapeUp();
+		System.out.println(titre.afficherTitre());
+		System.out.println(titre.afficherDescription());
+		
+		
+		
+		System.out.println("Entrez nombre de joueurs.");
+		Scanner scan1 = new Scanner(System.in);
+		int nbJoueur = scan1.nextInt();
+		
+		System.out.println("Vous êtes " + nbJoueur + "joueurs");
+		System.out.println("Saisir vos prénoms");
+		Scanner saisirPrenom = new Scanner(System.in);
+		String prenom = saisirPrenom.nextLine();
+		
+		System.out.println("Entrez nombre de lignes pour le plateau. Respectez taille 3x5.");
+		Scanner scan2 = new Scanner(System.in);
+		int nbLigne = scan2.nextInt();
+		
+		System.out.println("Entrez nombre de colonnes pour le plateau. Respectez taille 3x5");
+		Scanner scan3 = new Scanner(System.in);
+		int nbCol = scan3.nextInt();
+		
+		System.out.println("Choisir une forme de plateau (carré ou cercle).");
+		Scanner scan4 = new Scanner(System.in);
+		String choixForme = scan4.nextLine();
+		
+		scan1.close();
+		scan2.close();
+		scan3.close();
+		scan4.close();
+		
+		Forme forme = new Forme();
+		choixForme = forme.choisirForme();
+		
+		Plateau plat = new Plateau(nbJoueur, nbLigne, nbCol);
+		plat.poserCarte();
+		
+		System.out.println(plat.toString()); //ça fonctionne sau pour la forme
+		
+		//Piocher une carte fonctionne
+		System.out.println("Piocher une carte");
+		TasDeCarte tas = plat.getTas();
+		Scanner scan5 = new Scanner(System.in);
+		
+		Carte gagnante = tas.piocherCarte();
+		System.out.println("Vous venez de piocher une carte gagnante : " + gagnante.getNum() + ".\nVous pourrez la consulter uniquement à la fin du jeu");
+		Scanner scan6 = new Scanner(System.in);
+		
+		System.out.println("Piocher une carte");
+		Carte perdante = tas.piocherCarte();
+		System.out.println("Vous venez de piocher une carte perdante : " + perdante.getNum() + ".\nElle ne sera pas utilisée dans le jeu.");
+		Scanner scan7 = new Scanner(System.in);
+		
+		System.out.println("Piocher une carte");
+		System.out.println(tas.toString());
+		Scanner scan8 = new Scanner(System.in);
+		
+		scan5.close();
+		scan6.close();
+		scan7.close();
+		scan8.close();
+		
+		//Poser sur le plateau ne marche pas
+		plat.poserCarte();
+		System.out.println(plat.toString2());
+		
+		Joueur j = new Joueur(prenom,1);
+		System.out.println(j.toString());
+		//A FAIRE : placer carte sur plateau + touche ENTREE après piocher carte + score = 0 ??? + affichage gagnant + affichage plateau
+	}
 }

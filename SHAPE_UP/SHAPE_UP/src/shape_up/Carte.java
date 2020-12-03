@@ -46,5 +46,13 @@ public class Carte {
 	public void setRemplissage(boolean remplissage) {
 		this.remplissage = remplissage;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Carte : \n "
+				+ "\t numéro : " + num + ",\n"
+				+ "\t couleur : " + couleur + ",\n"
+				+ "\t forme : " + forme + ",\n "
+				+ "\t remplissage : " + remplissage;
+	}
 }
