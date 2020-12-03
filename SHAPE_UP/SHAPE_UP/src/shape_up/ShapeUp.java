@@ -76,10 +76,11 @@ public class ShapeUp {
 		Scanner scan1 = new Scanner(System.in);
 		int nbJoueur = scan1.nextInt();
 		
-		System.out.println("Vous êtes " + nbJoueur + "joueurs");
+		System.out.println("Vous êtes " + nbJoueur + " joueurs");
 		System.out.println("Saisir vos prénoms");
 		Scanner saisirPrenom = new Scanner(System.in);
-		String prenom = saisirPrenom.nextLine();
+		String prenom1 = saisirPrenom.nextLine();
+		String prenom2 = saisirPrenom.nextLine();
 		
 		System.out.println("Entrez nombre de lignes pour le plateau. Respectez taille 3x5.");
 		Scanner scan2 = new Scanner(System.in);
@@ -107,34 +108,28 @@ public class ShapeUp {
 		System.out.println(plat.toString()); //ça fonctionne sau pour la forme
 		
 		//Piocher une carte fonctionne
-		System.out.println("Piocher une carte");
+		System.out.println("Piocher une carte\n");
 		TasDeCarte tas = plat.getTas();
-		Scanner scan5 = new Scanner(System.in);
 		
 		Carte gagnante = tas.piocherCarte();
-		System.out.println("Vous venez de piocher une carte gagnante : " + gagnante.getNum() + ".\nVous pourrez la consulter uniquement à la fin du jeu");
-		Scanner scan6 = new Scanner(System.in);
-		
-		System.out.println("Piocher une carte");
+		System.out.println("Vous venez de piocher une carte gagnante : " + gagnante.getNum() + ".\nVous pourrez la consulter uniquement à la fin du jeu.\n");
+
+		System.out.println("Piocher une carte\n");
 		Carte perdante = tas.piocherCarte();
-		System.out.println("Vous venez de piocher une carte perdante : " + perdante.getNum() + ".\nElle ne sera pas utilisée dans le jeu.");
-		Scanner scan7 = new Scanner(System.in);
+		System.out.println("Vous venez de piocher une carte perdante : " + perdante.getNum() + ".\nElle ne sera pas utilisée dans le jeu.\n");
 		
-		System.out.println("Piocher une carte");
-		System.out.println(tas.toString());
-		Scanner scan8 = new Scanner(System.in);
-		
-		scan5.close();
-		scan6.close();
-		scan7.close();
-		scan8.close();
+		System.out.println("Piocher une carte\n");
+		Carte carte = tas.piocherCarte();
+		System.out.println(carte.toString());
 		
 		//Poser sur le plateau ne marche pas
 		plat.poserCarte();
-		System.out.println(plat.toString2());
+		System.out.println(plat.toString2() + "\n");
 		
-		Joueur j = new Joueur(prenom,1);
-		System.out.println(j.toString());
+		Joueur j = new Joueur(prenom1,1);
+		Joueur j2 = new Joueur(prenom2,2);
+		System.out.println(j.toString() + "\n");
+		System.out.println(j2.toString() + "\n");
 		//A FAIRE : placer carte sur plateau + touche ENTREE après piocher carte + score = 0 ??? + affichage gagnant + affichage plateau
 	}
 }

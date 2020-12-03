@@ -28,11 +28,12 @@ public class Plateau {
 	public void setNbJoueur(int nbJoueur) {
 		this.nbJoueur = nbJoueur;
 	}
-
+	
+	
 	public Joueur[] getJoueurs() {
 		return joueurs;
 	}
-	
+
 	public TasDeCarte getTas() {
 		return tas;
 	}
