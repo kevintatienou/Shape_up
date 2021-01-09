@@ -5,8 +5,8 @@ import java.util.* ;
 public class TasDeCarte {
 
 	private ArrayList<Carte> cartes;
-	private int nbCarte = 0;
-	private Carte c1 =  new Carte(Couleur.Rouge,FormeCarte.Cercle,true,1);
+	//private int nbCarte = 0;
+	/*private Carte c1 =  new Carte(Couleur.Rouge,FormeCarte.Cercle,true,1);
 	private Carte c2 =  new Carte(Couleur.Rouge,FormeCarte.Carre,true,2);
 	private Carte c3 =  new Carte(Couleur.Rouge,FormeCarte.Triangle,true,3);
 	private Carte c4 =  new Carte(Couleur.Rouge,FormeCarte.Cercle,false,4);
@@ -15,33 +15,30 @@ public class TasDeCarte {
 	private Carte c7 =  new Carte(Couleur.Bleu,FormeCarte.Cercle,true,7);
 	private Carte c8 =  new Carte(Couleur.Bleu,FormeCarte.Carre,true,8);
 	private Carte c9 =  new Carte(Couleur.Bleu,FormeCarte.Triangle,true,9);
-	private Carte c10 =  new Carte(Couleur.Bleu,FormeCarte.Cercle,false,10);
-	private Carte c11 =  new Carte(Couleur.Bleu,FormeCarte.Carre,false,11);
-	private Carte c12 =  new Carte(Couleur.Bleu,FormeCarte.Triangle,false,12);
-	private Carte c13 =  new Carte(Couleur.Vert,FormeCarte.Cercle,true,13);
-	private Carte c14 =  new Carte(Couleur.Vert,FormeCarte.Carre,true,14);
-	private Carte c15 =  new Carte(Couleur.Vert,FormeCarte.Triangle,true,15);
-	private Carte c16 =  new Carte(Couleur.Vert,FormeCarte.Cercle,false,16);
-	private Carte c17 =  new Carte(Couleur.Vert,FormeCarte.Carre,false,17);
-	private Carte c18 =  new Carte(Couleur.Vert,FormeCarte.Triangle,false,18);
+	private Carte c10 = new Carte(Couleur.Bleu,FormeCarte.Cercle,false,10);
+	private Carte c11 = new Carte(Couleur.Bleu,FormeCarte.Carre,false,11);
+	private Carte c12 = new Carte(Couleur.Bleu,FormeCarte.Triangle,false,12);
+	private Carte c13 = new Carte(Couleur.Vert,FormeCarte.Cercle,true,13);
+	private Carte c14 = new Carte(Couleur.Vert,FormeCarte.Carre,true,14);
+	private Carte c15 = new Carte(Couleur.Vert,FormeCarte.Triangle,true,15);
+	private Carte c16 = new Carte(Couleur.Vert,FormeCarte.Cercle,false,16);
+	private Carte c17 = new Carte(Couleur.Vert,FormeCarte.Carre,false,17);
+	private Carte c18 = new Carte(Couleur.Vert,FormeCarte.Triangle,false,18);*/
 	
 	// là je crée un constructeur pour initialiser le tas de carte//
 	public TasDeCarte() {
 		this.cartes = new ArrayList<Carte>();
-		this.nbCarte = this.cartes.size();
 	}
 	
 	public int getNumCarte() {
-		this.ajouterCarte();
-		int c = 0;
-		for(int i=0; i<this.cartes.size(); i++) {
-			c = cartes.get(i).getNum();
+		for(int i = 0; i<this.cartes.size(); i++) {
+			return cartes.get(i).getNum();
 		}
-		return c;
+		return 0;
 	}
 
 	public int getNbCarte() {
-		return nbCarte;
+		return this.cartes.size();
 	}
 	
 	/*différentes possibilités de cartes
@@ -157,8 +154,8 @@ public class TasDeCarte {
 	
 	// Ajouter des cartes au tas
 	//@param carte a ajouter 
-	public void ajouterCarte () {
-		this.cartes.add(c1);
+	public void ajouterCarte (Carte carte) {
+		/*this.cartes.add(c1);
 		this.cartes.add(c2);
 		this.cartes.add(c3);
 		this.cartes.add(c4);
@@ -175,7 +172,8 @@ public class TasDeCarte {
 		this.cartes.add(c15);
 		this.cartes.add(c16);
 		this.cartes.add(c17);
-		this.cartes.add(c18);
+		this.cartes.add(c18);*/
+		this.cartes.add(carte);
 	}
 	
 	// retirer une carte au tas
@@ -184,19 +182,22 @@ public class TasDeCarte {
 	}
 	
 	//melanger les cartes
-	public Carte melanger() {
+	public void melanger() {
 		//numero de carte aleatoire entre 1 et 18
-		int res = 1 + (int)(Math.random() * ((18 - 1) + 1));
+		/*int res = 1 + (int)(Math.random() * ((18 - 1) + 1));
 		
 		//carte aleatoire
 		Carte c = this.cartes.get(res);
-		this.retirerCarte(c);
-		return c;	
+		c.setNum(res);
+		this.retirerCarte(c);*/
+		Collections.shuffle(this.cartes);	
 	}
 	
 	//piocher une carte après avoir mélanger
 	public Carte piocherCarte() {
-		Carte c = this.melanger();
+		this.melanger();
+		Carte c = (Carte) this.cartes.get(0);
+		this.retirerCarte(c);
 		return c;
 	}
 	

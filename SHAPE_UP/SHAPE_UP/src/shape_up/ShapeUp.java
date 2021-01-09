@@ -103,9 +103,8 @@ public class ShapeUp {
 		choixForme = forme.choisirForme();
 		
 		Plateau plat = new Plateau(nbJoueur, nbLigne, nbCol);
-		plat.poserCarte();
 		
-		System.out.println(plat.toString()); //ça fonctionne sau pour la forme
+		//System.out.println(plat.toString()); //ça fonctionne sau pour la forme
 		
 		//Piocher une carte fonctionne
 		System.out.println("Piocher une carte\n");
@@ -122,9 +121,20 @@ public class ShapeUp {
 		Carte carte = tas.piocherCarte();
 		System.out.println(carte.toString());
 		
+		System.out.println("Sur quelle ligne voulez-vous poser votre carte");
+		Scanner scan5 = new Scanner(System.in);
+		int li = scan5.nextInt();
+		
+		System.out.println("Sur quelle colonne voulez-vous poser votre carte");
+		Scanner scan6 = new Scanner(System.in);
+		int col = scan6.nextInt();
+		
 		//Poser sur le plateau ne marche pas
-		plat.poserCarte();
+		plat.poserCarte(carte, li, col);
 		System.out.println(plat.toString2() + "\n");
+		
+		scan5.close();
+		scan6.close();
 		
 		Joueur j = new Joueur(prenom1,1);
 		Joueur j2 = new Joueur(prenom2,2);
