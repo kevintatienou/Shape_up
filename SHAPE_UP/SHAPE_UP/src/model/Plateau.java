@@ -38,27 +38,24 @@ public class Plateau {
 		return tas;
 	}
 
-	public void poserCarte(Carte c, int li, int col) {
-		c = this.tas.piocherCarte();
+	public void poserCarte() {
 		for(int i = 0; i < this.grille.length; i++) {
 			for(int j = 0; j < this.grille.length; j++) {
-				this.grille[li][col] = c.getNum();
+				this.grille[i][j] = this.tas.getNumCarte();
 			}
 		}
 	}
 	
-	/*public void deplacerCarte() {
-		for(int i = 0; i < this.ligne.length; i++) {
-			for(int j = 0; j < this.colonne.length; j++) {
-				if(this.ligne[i] !=0 && this.colonne[j] !=0) {
-					this.ligne[i+1] = this.ligne[i];
-					this.colonne[j+1] = this.colonne[j];
-					this.ligne[i] = this.tas.getNumCarte();
-					this.colonne[j] = this.tas.getNumCarte();
+	public void deplacerCarte() {
+		for(int i = 0; i < this.grille.length; i++) {
+			for(int j = 0; j < this.grille.length; j++) {
+				if(this.grille[i][j] !=0) {
+					this.grille[i+1][j+1] = this.grille[i][j];
+					this.grille[i][j] = this.tas.getNumCarte();
 				}
 			}
 		}
-	}*/
+	}
 
 	@Override
 	public String toString() {
